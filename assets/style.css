@@ -113,6 +113,7 @@ header {
 	min-height: 470px;
 	position: relative;
 }
+
 .banner-img {
 	position: absolute;
 	width: 100%;
@@ -132,6 +133,27 @@ header {
 #banner .arrow_right {
 	right: 10px;
 }
+
+.arrow_left{
+	justify-content: left;
+	left: 20px;
+}
+.arrow_right{
+	justify-content: right;
+	right: 20px;
+}
+/* Gestion des flèches du carrousel */
+.arrow_left,
+.arrow_right {
+	position: absolute;
+	top: 45%;
+	transform: translateY(-50%);
+	width: 40px; /* taille ajustable */
+	height: auto;
+	cursor: pointer;
+	z-index: 1;
+}
+
 /* Gestion des points du carrousel */
 .dots {
 	position: absolute;
