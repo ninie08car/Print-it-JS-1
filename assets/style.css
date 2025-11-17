@@ -142,13 +142,13 @@ header {
 	justify-content: right;
 	right: 20px;
 }
-/* Gestion des flèches du carrousel */
+
 .arrow_left,
 .arrow_right {
 	position: absolute;
 	top: 45%;
 	transform: translateY(-50%);
-	width: 40px; /* taille ajustable */
+	width: 40px;
 	height: auto;
 	cursor: pointer;
 	z-index: 1;

@@ -17,16 +17,45 @@ const slides = [
 	}
 ]
 
-const arrowLeft = document.getElementById('arrow_left')
-const arrowRight = document.getElementById('arrow_right')
+const arrowLeft = document.getElementById("arrow_left");
+const arrowRight = document.getElementById("arrow_right");
+const img = document.querySelector(".banner-img");
+const text = document.querySelector("#banner p");
+const dots = document.querySelectorAll(".dot");
 
-console.log(arrowLeft);
-console.log(arrowRight);
+let index = 0;
 
-arrowLeft.addEventListener('click', () => {
-    console.log('Flèche gauche cliquée');
+function updateSlide(){
+	img.src = "assets/images/slideshow/" + slides[index].image;
+	text.innerHTML = slides[index].tagLine;
+
+dots.forEach((dot, i) => {
+		if (i === index) {
+			dot.classList.add("fa-solid", "dot_selected");
+			dot.classList.remove("fa-light");
+		} else {
+			dot.classList.remove("fa-solid", "dot_selected");
+			dot.classList.add("fa-light");
+		}
+	});
+}
+
+// Flèche droite
+arrowRight.addEventListener("click", () => {
+	index = (index + 1) % slides.length;
+	updateSlide();
+	console.log("→ Slide suivant");
 });
 
-arrowRight.addEventListener('click', () => {
-    console.log('Flèche droite cliquée');
+// Flèche gauche
+arrowLeft.addEventListener("click", () => {
+	index = (index - 1 + slides.length) % slides.length;
+	updateSlide();
+	console.log("← Slide précédent");
 });
+
+// Initialisation
+updateSlide();
+
+
+
